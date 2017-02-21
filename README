@@ -1,0 +1,4 @@
+# cxi
+
+cxi is a curses-based text editor. It uses a sophisticated rope data
+structure courtesy of the Xi backend used.
