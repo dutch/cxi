@@ -1,9 +1,5 @@
 language: c
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq autoconf automake ncurses-dev
-script:
-  - set -e
-  - autoreconf -i
-  - ./configure
-  - make distcheck
+  - sudo apt-get update -q
+  - sudo apt-get install -q autoconf automake ncurses-dev
+script: bin/build
