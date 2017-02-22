@@ -1,7 +1,7 @@
 language: c
 install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq ncurses-dev
+  - sudo apt-get install -qq autoconf automake ncurses-dev
 script:
   - autoreconf -i
   - ./configure
