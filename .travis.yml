@@ -1,5 +1,4 @@
 language: c
-before_install:
-  - sudo apt-get update -q
-  - sudo apt-get install -q autoconf automake ncurses-dev
+dist: trusty
+sudo: false
 script: bin/build
