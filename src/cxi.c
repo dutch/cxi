@@ -37,6 +37,7 @@ new_tab_cb(void)
   nonl();
   intrflush(stdscr, FALSE);
   keypad(stdscr, TRUE);
+  timeout(0);
   getch();
   keypad(stdscr, FALSE);
   intrflush(stdscr, TRUE);

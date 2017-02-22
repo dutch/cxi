@@ -9,4 +9,4 @@ $(top_srcdir)/.version:
 dist-hook:
 	echo $(VERSION) >$(distdir)/.tarball-version
 
-include $(srcdir)/src/local.inc
+include $(srcdir)/src/Makefile.inc
