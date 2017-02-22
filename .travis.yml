@@ -2,3 +2,11 @@ language: c
 dist: trusty
 sudo: false
 script: bin/build
+deploy:
+  provider: releases
+  api_key:
+    secure: ta30CibIqpCPD3DnQyylj40BWteb0dMGD2PIllHXYlBqA3Q5lTRXTBByyAXljBXN+Z/FblneCliMaSdtpt0x2Il2nNx1YL5F7//XjRMCTFknjNm0xA/AZGXw7CTcFEcu1AlqzMtg0JN8LkU0YP+1R3gJryMjGUApMVcajTb5lwfoDNj+iTrAjTUnI/qh4mNDFKLJ2w3Kwis2bVeX1jhW977IPTOK/CsghTqo9pdNMzF1rGwEq8n6zEVO8rBZIzdUY8ZlBocCnZYbzGP2GAuT93Y0rpmgFdvV8Y/trtFIQBJD/hgzOHWg9+0bIE4Aylc0hA2qIhw33lV3uqkKh7oo20t4X6g4zV2Ew7WCCfxFZqYHKIdNupg4opMYjf6lSQvq2CEdBIsQ3MK0T1uWmZaicn6Jp/9bDEH+D30F1zEfXGEwuzeGkWD6O3kliSCNgzUiTqwMKScPGTAHWPeMFAA2UTorqle59Phr8UzJdaxs+o21t3Runh7r00ohD4OkA8Ejw7p5DH3iRi5dEYpECzHH9urCHpG56Dy/RokTNDvmT4xya73bwfT6kF3Rc1Xe1mOiV/wpdU1V6OdP1M4C3PSLfIBiaKMKaFDNEvx8zeqNbXmNRvROtuqmyj73q+LLLAAH9ZrnBdTHFTC9iJqmc2JsbTFfy5JwZ56WcGbV2wkS1LE=
+  file: cxi-*.tar.xz
+  skip_cleanup: true
+  on:
+    tags: true
