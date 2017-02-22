@@ -3,5 +3,8 @@ bin_PROGRAMS = %D%/cxi
 if LINUX
 %C%_cxi_SOURCES += %D%/event-linux.c
 endif
+if MAC
+%C%_cxi_SOURCES += %D%/event-mac.c
+endif
 %C%_cxi_CPPFLAGS = $(CURSES_CFLAGS)
 %C%_cxi_LDADD = $(CURSES_LIBS)

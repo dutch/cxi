@@ -71,7 +71,7 @@ int
 main(int argc, char *argv[])
 {
   pid_t res;
-  int ch, in_pfd[2], out_pfd[2], optidx;
+  int ch, in_pfd[2], out_pfd[2], optidx, flags;
 
   setlocale(LC_ALL, "");
 
@@ -100,8 +100,24 @@ main(int argc, char *argv[])
     }
   }
 
-  pipe2(in_pfd, O_NONBLOCK);
-  pipe2(out_pfd, O_NONBLOCK);
+  pipe(in_pfd);
+  pipe(out_pfd);
+
+  flags = fcntl(in_pfd[0], F_GETFL, 0);
+  flags |= O_NONBLOCK;
+  fcntl(in_pfd[0], F_SETFL, flags);
+
+  flags = fcntl(in_pfd[1], F_GETFL, 0);
+  flags |= O_NONBLOCK;
+  fcntl(in_pfd[1], F_SETFL, flags);
+
+  flags = fcntl(out_pfd[0], F_GETFL, 0);
+  flags |= O_NONBLOCK;
+  fcntl(out_pfd[0], F_SETFL, flags);
+
+  flags = fcntl(out_pfd[1], F_GETFL, 0);
+  flags |= O_NONBLOCK;
+  fcntl(out_pfd[1], F_SETFL, flags);
 
   if ((res = fork()) == -1) {
     perror("fork");
